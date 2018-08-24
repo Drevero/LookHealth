@@ -28,4 +28,4 @@ The App require two external plugins, **cordova-plugin-background-mode** and **c
 
 ## Screenshots
 
-<img src="https://raw.githubusercontent.com/Drevero/LookHealth/master/Screens/GIF-Anim.gif" height="400"><img src="https://raw.githubusercontent.com/Drevero/LookHealth/master/Screens/GIF-Anim.gif" height="400">
+<img src="https://raw.githubusercontent.com/Drevero/LookHealth/master/Screens/GIF-Anim.gif" height="400"><img src="https://raw.githubusercontent.com/Drevero/LookHealth/master/Screens/V0_1.jpg" height="400">
