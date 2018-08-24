@@ -1,4 +1,4 @@
-<p align="left">
+<p align="left" style="position: absolute;">
 	<img src="https://raw.githubusercontent.com/Drevero/LookHealth/master/Screens/android.png" height="30" style="margin-right: 15px;"/>
 	<img src="https://raw.githubusercontent.com/Drevero/LookHealth/master/Screens/apple.svg" height="30"/>
 </p>
