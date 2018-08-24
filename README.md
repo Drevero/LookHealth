@@ -1,3 +1,5 @@
+<img src="https://raw.githubusercontent.com/Drevero/LookHealth/master/Screens/eyes.gif" width="400">
+
 # *LookHealth*, look nice everyday
 
 LookHealth is an experimental Cordova open source App, it fully compatible with Android and iOS.
@@ -24,4 +26,4 @@ The App require two external plugins, **cordova-plugin-background-mode** and **c
 
 ## Screenshots
 
-<img src="https://raw.githubusercontent.com/Drevero/LookHealth/master/Screens/GIF-Anim.gif" height="400"><img src="https://raw.githubusercontent.com/Drevero/LookHealth/master/Screens/V0_1.jpg" height="400">
+<img src="https://raw.githubusercontent.com/Drevero/LookHealth/master/Screens/GIF-Anim.gif" height="400"><img src="https://raw.githubusercontent.com/Drevero/LookHealth/master/Screens/GIF-Anim.gif" height="400">
