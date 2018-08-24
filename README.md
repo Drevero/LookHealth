@@ -37,6 +37,6 @@ The App require two external plugins, **cordova-plugin-background-mode** and **c
 
 <img src="https://raw.githubusercontent.com/Drevero/LookHealth/master/Screens/GIF-Anim.gif" height="400"><img src="https://raw.githubusercontent.com/Drevero/LookHealth/master/Screens/V0_1.jpg" height="400">
 
-<p align="center" style="color: #c0392b;">
-	Made with ❤ in France
+<p align="center">
+	<b color="#c0392b">Made with ❤ in France</b>
 </p>
