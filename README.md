@@ -37,6 +37,10 @@ The App require two external plugins, **cordova-plugin-background-mode** and **c
 
 <img src="https://raw.githubusercontent.com/Drevero/LookHealth/master/Screens/GIF-Anim.gif" height="400"><img src="https://raw.githubusercontent.com/Drevero/LookHealth/master/Screens/V0_1.jpg" height="400">
 
+## License
+
+This software is released under [GNU GPL v3](https://www.gnu.org/licenses/gpl-3.0.fr.html), feel free to fork my work !
+
 <p align="center">
 	<b color="#c0392b">Made with ❤ in France</b>
 </p>
