@@ -1,8 +1,9 @@
 <p align="center">
 <img src="https://raw.githubusercontent.com/Drevero/LookHealth/master/Screens/eyes.gif" width="250">
 </p>
-🔧 **Experimental app**
-
+<p align="right">
+🔧 <b>Experimental APP</b>
+</p>
 
 # *LookHealth*, look nice everyday
 
