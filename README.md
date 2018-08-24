@@ -2,7 +2,7 @@
 🔧 <b>Experimental APP</b>
 </p>
 <p align="center">
-<img src="https://raw.githubusercontent.com/Drevero/LookHealth/master/Screens/eyes.gif" width="250">
+<img src="https://raw.githubusercontent.com/Drevero/LookHealth/master/Screens/eyes.gif" width="150">
 </p>
 
 # *LookHealth*, look nice everyday
