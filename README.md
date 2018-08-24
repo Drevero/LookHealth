@@ -18,4 +18,10 @@ To build your own LookHealth for each plateforms, you must install **npm** and *
 The App require two external plugins, **cordova-plugin-background-mode** and **cordova-plugin-local-notification** from the famous *Katzer*.
 
 > $ cordova plugin add cordova-plugin-background-mode
+
+
 >  $ cordova plugin add cordova-plugin-local-notification
+
+## Demos
+
+![Generated stats](https://raw.githubusercontent.com/Drevero/LookHealth/master/Screens/V0_1.jpg)
