@@ -1,7 +1,7 @@
 <p align="center">
 <img src="https://raw.githubusercontent.com/Drevero/LookHealth/master/Screens/eyes.gif" width="250">
 </p>
-
+🔧 **Experimental app**
 # *LookHealth*, look nice everyday
 
 LookHealth is an experimental Cordova open source App, it fully compatible with Android and iOS.
