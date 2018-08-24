@@ -2,8 +2,8 @@
 🔧 <b>Experimental APP</b>
 </p>
 <p align="right">
-	<img src="" height="50"/>
-	<img src="" height="50"/>
+	<img src="https://raw.githubusercontent.com/Drevero/LookHealth/master/Screens/android.png" height="50"/>
+	<img src="https://raw.githubusercontent.com/Drevero/LookHealth/master/Screens/apple.svg" height="50"/>
 </p>
 <p align="center">
 <img src="https://raw.githubusercontent.com/Drevero/LookHealth/master/Screens/eyes.gif" width="150">
