@@ -24,4 +24,4 @@ The App require two external plugins, **cordova-plugin-background-mode** and **c
 
 ## Demos
 
-![Generated stats](https://raw.githubusercontent.com/Drevero/LookHealth/master/Screens/V0_1.jpg = 300x)
+![Generated stats](https://raw.githubusercontent.com/Drevero/LookHealth/master/Screens/V0_1.jpg =300x)
