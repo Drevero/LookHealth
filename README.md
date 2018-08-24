@@ -1,6 +1,10 @@
+<p align="left">
+	<img src="https://raw.githubusercontent.com/Drevero/LookHealth/master/Screens/android.png" height="30" style="margin-right: 15px;"/>
+	<img src="https://raw.githubusercontent.com/Drevero/LookHealth/master/Screens/apple.svg" height="30"/>
+</p>
 <p align="right">
 🔧 <b>Experimental APP</b>
-</p><p align="left"><img src="https://raw.githubusercontent.com/Drevero/LookHealth/master/Screens/android.png" height="30"/><img src="https://raw.githubusercontent.com/Drevero/LookHealth/master/Screens/apple.svg" height="30"/></p>
+</p>
 <p align="center">
 <img src="https://raw.githubusercontent.com/Drevero/LookHealth/master/Screens/eyes.gif" width="150">
 </p>
