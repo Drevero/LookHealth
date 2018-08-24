@@ -1,0 +1,231 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+	<title>Look Good</title>
+	<link rel="stylesheet" href="css/main.css"/>
+</head>
+<body>
+<div id="main-content">
+	<ul>
+		<li class="title_category active_title" node="configuration">Configuration</li>
+		<li class="category active" id="configuration_cat">
+			<p id="configuration_text">
+			<span class="fa-solid highlighted" id="eye-moji">eye eye</span>
+			Just put your smartphone <span class="highlighted">in front of your eyes</span> and <span class="highlighted">touch the screen</span></p>
+		</li>
+		<li class="title_category" node="health">What about your health ?</li>
+		<li class="category" id="health_cat">
+			<canvas id="myChart"></canvas>
+			<p id="reinit">Click here to re-init stats</p>
+		</li>
+		<li class="title_category" node="feed">Feedbacks</li>
+		<li class="category" id="feed_cat"></li>
+	</ul>
+	<p id="confirm_action"><span class="fa-solid highlighted">check</span><span id="text_act">Success</span></p>
+</div>
+<script src="js/jquery-3.3.1.min.js"></script>
+<script type="text/javascript" src="cordova.js"></script>
+<script src="js/fastclick.js"></script>
+<script src="js/Chart.js"></script>
+<script>
+var ctx = document.getElementById("myChart").getContext('2d');
+</script>
+<script>
+// Prevent the 300ms delay of cordova webview
+if ('addEventListener' in document) {
+	document.addEventListener('DOMContentLoaded', function() {
+		FastClick.attach(document.body);
+	}, false); 
+}
+$('#reinit').click(function() {
+	init_session(false);
+	open_draw();
+	open_draw();
+	pop_notif('Stats reinitialized', 1500);
+});
+var alpha=0, timer=0, actual_timer, alpha_limit=0, good_pos=0, acceptable_pos=0, bad_pos=0, poor_pos=0, sleep_pos=0;
+// Initialize local storage of eye limit height
+if(localStorage.getItem('alpha_limit') && localStorage.getItem('timer') && localStorage.getItem('good_pos') && localStorage.getItem('acceptable_pos') && localStorage.getItem('bad_pos') && localStorage.getItem('poor_pos') && localStorage.getItem('sleep_pos'))
+{
+	alpha_limit=parseInt(localStorage.getItem('alpha_limit'));
+	timer=parseInt(localStorage.getItem('timer'));
+	good_pos=parseInt(localStorage.getItem('good_pos'));
+	acceptable_pos=parseInt(localStorage.getItem('acceptable_pos'));
+	bad_pos=parseInt(localStorage.getItem('bad_pos'));
+	poor_pos=parseInt(localStorage.getItem('poor_pos'));
+	sleep_pos=parseInt(localStorage.getItem('sleep_pos'));
+}
+else
+{
+	init_session(true);
+}
+function init_session(full)
+{
+	if(full)
+	{
+		localStorage.setItem('alpha_limit', 80);
+		alpha_limit=parseInt(localStorage.getItem('alpha_limit'));
+	}
+	localStorage.setItem('timer', 0);
+	timer=parseInt(localStorage.getItem('timer'));
+	localStorage.setItem('good_pos', 0);
+	good_pos=parseInt(localStorage.getItem('good_pos'));
+	localStorage.setItem('acceptable_pos', 0);
+	acceptable_pos=parseInt(localStorage.getItem('acceptable_pos'));
+	localStorage.setItem('bad_pos', 0);
+	bad_pos=parseInt(localStorage.getItem('bad_pos'));
+	localStorage.setItem('poor_pos', 0);
+	poor_pos=parseInt(localStorage.getItem('poor_pos'));
+	localStorage.setItem('sleep_pos', 0);
+	sleep_pos=parseInt(localStorage.getItem('sleep_pos'));
+}
+// Add an event listener to watch the usage of smartphone 
+function retrieve_position()
+{
+	timer+=1;
+	setLocalStorage('timer', timer);
+	entry_data(alpha);
+	setTimeout('retrieve_position()', 5000);
+}
+retrieve_position();
+window.addEventListener("deviceorientation", handleOrientation, true);
+function handleOrientation(event) {
+  alpha = event.beta;
+}
+function entry_data(alpha_l)
+{
+	if(alpha_l>alpha_limit || alpha_l==alpha_limit)
+	{
+		good_pos+=1;
+	}
+	if(alpha_l<(alpha_limit-10) && alpha_l>(alpha_limit-20))
+	{
+		acceptable_pos+=1;
+	}
+	if(alpha_l<alpha_limit && alpha_l>3)
+	{
+		bad_pos+=1;
+	}
+	if(alpha_l<alpha_limit && alpha_l<20 && alpha>3)
+	{
+		poor_pos+=1;
+	}
+	if(alpha_l<3)
+	{
+		sleep_pos+=1;
+	}
+	setLocalStorage('good_pos', good_pos);
+	setLocalStorage('acceptable_pos', acceptable_pos);
+	setLocalStorage('bad_pos', bad_pos);
+	setLocalStorage('poor_pos', poor_pos);
+	setLocalStorage('sleep_pos', sleep_pos);
+}
+function setLocalStorage(variable, val)
+{
+	localStorage.setItem(variable, parseInt(val));
+}
+function update_notif(title, message_direct, icon)
+{
+	cordova.plugins.notification.local.update({
+    id: 0,
+    vibrate: false,
+    title: title,
+    icon: 'http://climberindonesia.com/assets/icon/ionicons-2.0.1/png/512/android-chat.png',
+    text: message_direct,
+});
+}
+document.addEventListener('deviceready', function () {
+	cordova.plugins.backgroundMode.enable();
+	cordova.plugins.backgroundMode.overrideBackButton();
+	cordova.plugins.backgroundMode.excludeFromTaskList();
+	cordova.plugins.backgroundMode.setDefaults({ silent: true });
+	cordova.plugins.backgroundMode.on('activate', function() {
+	   cordova.plugins.backgroundMode.disableWebViewOptimizations(); 
+	});
+}, false);
+$('#eye-moji').click(function(){
+	if($('.active').attr('id')=="configuration_cat")
+	{
+		localStorage.setItem('alpha_limit', Math.round(alpha));
+		alpha_limit=localStorage.getItem('alpha_limit');
+		pop_notif('Preference saved to ' + Math.round(alpha) + 'deg', 1500);
+	}
+});
+var opa=1, opa_decomp, cat;
+$(document).ready(function() {
+	opa_decomp=opa/$('.title_category').length;
+	$('.title_category').each(function(e) {
+		$(this).css('opacity', opa);
+		opa-=opa_decomp;
+	});	
+});
+$('.title_category').click(function() {
+	cat=$(this).attr('node');
+	$('.title_category').each(function() {
+		$(this).removeClass('active_title');
+	});
+	$(this).addClass('active_title');
+	$('.category').each(function() {
+		$(this).removeClass('active');
+	});
+	document.getElementById(cat + '_cat').classList.add('active');
+	if(cat=='health')
+	{
+		open_draw();
+	}
+});
+function pop_notif(textit, timing)
+{
+	$('#confirm_action').animate({right: 20, opacity: 1}, timing, function() { $(this).animate({right: 0, opacity: 0}, timing+1000); });
+	$('#confirm_action #text_act').html(textit);
+}
+function make_purcentage(first, total)
+{
+	return Math.floor(first*100/total);
+}
+function open_draw()
+{
+	var total=good_pos+acceptable_pos+bad_pos+poor_pos+sleep_pos;
+	$('#myChart').attr('width', window.screen.width-200);
+	$('#myChart').attr('height', 200);
+	var myPieChart = new Chart(ctx,{
+		type: 'pie',
+    data: {
+        labels: ["Good position", "Acceptable position", "Bad position", "Poor position", "Sleep position"],
+        datasets: [{
+            label: '#',
+            data: [make_purcentage(good_pos, total), make_purcentage(acceptable_pos, total), make_purcentage(bad_pos, total), make_purcentage(poor_pos, total), make_purcentage(sleep_pos, total)],
+            backgroundColor: [
+                'rgba(65, 133, 56, 0.5)',
+                'rgba(54, 162, 235, 0.5)',
+                'rgba(255, 206, 86, 0.5)',
+                'rgba(133, 66, 56, 0.5)',
+                'rgba(235, 250, 237, 0.5)',
+            ],
+            borderColor: [
+                'rgba(65, 133, 56, 1)',
+                'rgba(54, 162, 235, 1)',
+                'rgba(255, 206, 86, 1)',
+                'rgba(133, 66, 56, 1)',
+                'rgba(235, 250, 237, 1)',
+            ],
+            borderWidth: 1
+        }]
+    },
+    options: {
+        responsive : true,
+        legend: {
+			position: 'left',
+		},
+		title: {
+			display: true,
+			text: 'Expression in % of time of smartphone use (' + Math.floor((timer*5/60)) +'min of watching)',
+		},
+    }
+	});
+}
+</script>
+</body>
+</html>
