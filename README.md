@@ -1,4 +1,6 @@
-<img src="https://raw.githubusercontent.com/Drevero/LookHealth/master/Screens/eyes.gif" width="250" align="center">
+<p align="center">
+<img src="https://raw.githubusercontent.com/Drevero/LookHealth/master/Screens/eyes.gif" width="250">
+</p>
 
 # *LookHealth*, look nice everyday
 
