@@ -1,0 +1,28 @@
+var FR_LANG={
+	"conf": "Configuration",
+	"help": "Mettez votre smartphone <span class=\"highlighted\">en face de vos yeux</span> et <span class=\"highlighted\">touchez l'écran</span>",
+	"health": "Bulletin santé",
+	"feedbacks": "Retour aux devs'",
+	"Good_Pos": "Bonne position", 
+	"Acceptable_Pos": "Position acceptable",
+	"Bad_Pos": "Mauvaise position",
+	"Poor_Pos": "Position dangereuse",
+	"Sleep_Pos": "En veille",	
+	"WatchTime1": "Exprimé en % d'utilisation de votre smartphone (",	
+	"WatchTime2": "min de surveillance)",	
+	"lang": "Changer la langue",	
+};
+var EN_LANG={
+	"conf": "Configuration",
+	"help": "Just put your smartphone <span class=\"highlighted\">in front of your eyes</span> and <span class=\"highlighted\">touch the screen</span>",
+	"health": "What about your health",
+	"feedbacks": "Feedback",
+	"Good_Pos": "Good position", 
+	"Acceptable_Pos": "Acceptable position",
+	"Bad_Pos": "Bad position",
+	"Poor_Pos": "Poor position",
+	"Sleep_Pos": "Sleep position",	
+	"WatchTime1": "Expression in % of time of smartphone use (",	
+	"WatchTime2": "min of watching!)",	
+	"lang": "Change your lang",	
+};
